@@ -6,13 +6,6 @@ const uri = `mongodb+srv://Alt:${password}@first-cluster-t5bgj.mongodb.net/test?
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  console.log('CONNECTED');
-  collection.insertOne({
-      text: 'Something to do',
-      completed : false
-  });
   
   const users = client.db("accounts").collection('users');
 
@@ -28,7 +21,12 @@ client.connect(err => {
 //       console.log(result.ops[0]._id.getTimestamp());
 
 //   });
+ 
+  users.insertOne({
+    name : 'ZAIDDY'
+  });
 
+  console.log('Setup completed.');
 
   client.close();
 });
